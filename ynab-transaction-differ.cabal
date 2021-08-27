@@ -1,0 +1,62 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 47b7aa1cca10eee223fd9e152fe46d1baf32f4907b798390298cb7362515dddd
+
+name:           ynab-transaction-differ
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/ynab-transaction-differ#readme>
+homepage:       https://github.com/githubuser/ynab-transaction-differ#readme
+bug-reports:    https://github.com/githubuser/ynab-transaction-differ/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/ynab-transaction-differ
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_ynab_transaction_differ
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable ynab-transaction-differ-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_ynab_transaction_differ
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , ynab-transaction-differ
+  default-language: Haskell2010
+
+test-suite ynab-transaction-differ-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_ynab_transaction_differ
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , ynab-transaction-differ
+  default-language: Haskell2010
