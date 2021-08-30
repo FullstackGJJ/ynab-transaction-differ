@@ -18,9 +18,6 @@ jobs:
           ghc-version: '8.10.2'
           cabal-version: '3.2'
 
-      - name: Install Stack
-        run: curl -sSL https://get.haskellstack.org/ | sh
-
       - name: Cache dependencies
         uses: actions/cache@v1
         with:
