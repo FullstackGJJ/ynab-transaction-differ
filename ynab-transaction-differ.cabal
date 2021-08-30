@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 47b7aa1cca10eee223fd9e152fe46d1baf32f4907b798390298cb7362515dddd
+-- hash: 5ddd320ba507e36d25205bf81bc17b2c0e9463f322732c17a0b63f3d1c407442
 
 name:           ynab-transaction-differ
 version:        0.1.0.0
@@ -28,6 +28,11 @@ source-repository head
 library
   exposed-modules:
       Lib
+      TransactionDiffer.DomainModels
+      TransactionDiffer.DomainRules
+      TransactionDiffer.ImpureActions
+      TransactionDiffer.InternalFunctions
+      TransactionDiffer.PureCalculations
   other-modules:
       Paths_ynab_transaction_differ
   hs-source-dirs:
@@ -52,11 +57,15 @@ test-suite ynab-transaction-differ-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      TransactionDiffer.InternalFunctionsSpec
+      TransactionDiffer.PureCalculationsSpec
       Paths_ynab_transaction_differ
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      HUnit
+    , base >=4.7 && <5
+    , hspec
     , ynab-transaction-differ
   default-language: Haskell2010
