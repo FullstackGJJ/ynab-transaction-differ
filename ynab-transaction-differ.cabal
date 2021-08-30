@@ -8,12 +8,12 @@ cabal-version: 1.12
 
 name:           ynab-transaction-differ
 version:        0.1.0.0
-description:    To allow easy reconciling of YNAB budget
-homepage:       https://github.com/fullstackgjj/ynab-transaction-differ#readme
-bug-reports:    https://github.com/fullstackgjj/ynab-transaction-differ/issues
-author:         Hank Lin
-maintainer:     fullstackgjj@gmail.com
-copyright:      2021 Hank Lin
+description:    Please see the README on GitHub at <https://github.com/githubuser/ynab-transaction-differ#readme>
+homepage:       https://github.com/githubuser/ynab-transaction-differ#readme
+bug-reports:    https://github.com/githubuser/ynab-transaction-differ/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
