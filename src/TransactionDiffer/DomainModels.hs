@@ -1,15 +1,13 @@
 module TransactionDiffer.DomainModels where
 
-import Date.Time.Calendar.Days
+type Date = String
 
-type Date = Day
-
-type Amount = String
+type Amount = Float
 
 type Merchant = String
 
 data Transaction = Transaction { 
     date::Date, 
     amount::Amount,
-    merchange::Merchant
+    merchant::Merchant
 } deriving (Eq, Show)
