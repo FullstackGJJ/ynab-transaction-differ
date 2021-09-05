@@ -2,7 +2,7 @@ module TransactionDiffer.PureCalculations where
 
 import qualified TransactionDiffer.DomainModels as DM
 import qualified TransactionDiffer.DomainRules as DR
-import qualified TransactionDiffer.InternalFunctions as IF
+import qualified TransactionDiffer.InternalToCalculations as IF
 
 -----------------Function Declarations-----------------
 findTransactionDiffs :: [DM.Transaction] -> [DM.Transaction] -> ([DM.Transaction], [DM.Transaction], [DM.Transaction])

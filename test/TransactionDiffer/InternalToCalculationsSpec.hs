@@ -1,10 +1,10 @@
-module TransactionDiffer.InternalFunctionsSpec where
+module TransactionDiffer.InternalToCalculationsSpec where
 
 import Test.Hspec
 
 import TransactionDiffer.DomainModels
 import TransactionDiffer.DomainRules
-import TransactionDiffer.InternalFunctions
+import TransactionDiffer.InternalToCalculations
 
 spec :: Spec
 spec = do 
