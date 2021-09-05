@@ -2,7 +2,9 @@
 
 This domain is responsible for diffing a reference list of transactions against a list that is out of sync. 
 
-A transaction is a mental model that holds information about date, amount, merchant
+Mental Models:
+
+- A transaction is a mental model that holds information about date, amount, merchant
 
 The rules of thumb are:
 
