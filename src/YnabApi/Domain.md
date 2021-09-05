@@ -2,9 +2,10 @@
 
 This domain is responsible for obtaining data from Ynab Api
 
-A TransactionDetail is a mental model that holds information about amount, date, and payee id of a transaction
+Domain Models:
 
-A TransactionsResponse is a mental model that holds information about TransactionDetails
+- A transaction detail is a mental model that holds information about amount, date, and payee id of a transaction
+- A transactions response is a mental model that holds information about transaction details
 
 The rules of thumb are:
 
