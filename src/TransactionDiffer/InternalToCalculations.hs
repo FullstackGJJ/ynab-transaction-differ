@@ -1,4 +1,4 @@
-module TransactionDiffer.InternalFunctions where
+module TransactionDiffer.InternalToCalculations where
 
 import qualified TransactionDiffer.DomainModels as DM
 import qualified TransactionDiffer.DomainRules as DR
