@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8e7d1f0aafc8458fa7a82dc1f28006f93ecf89806f5ab242ab110f9199056579
+-- hash: b0f63bc00900363a727e9870d3a163e6033645c4f071c02195cdad18515111c0
 
 name:           ynab-transaction-differ
 version:        0.1.0.0
@@ -43,19 +43,25 @@ library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , lens
+    , lens-aeson
+    , wreq
   default-language: Haskell2010
 
 executable ynab-transaction-differ-exe
   main-is: Main.hs
-  other-modules:
-      Paths_ynab_transaction_differ
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , ynab-transaction-differ
+  if false
+    other-modules:
+        Paths_ynab_transaction_differ
   default-language: Haskell2010
 
 test-suite ynab-transaction-differ-test
