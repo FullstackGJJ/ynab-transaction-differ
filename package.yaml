@@ -24,6 +24,12 @@ dependencies:
 
 library:
   source-dirs: src
+  dependencies:
+  - aeson
+  - bytestring
+  - lens
+  - lens-aeson
+  - wreq
 
 executables:
   ynab-transaction-differ-exe:
@@ -35,6 +41,9 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - ynab-transaction-differ
+    when:
+    - condition: false
+      other-modules: Paths_ynab_transaction_differ
 
 tests:
   ynab-transaction-differ-test:
