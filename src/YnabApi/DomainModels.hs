@@ -8,12 +8,12 @@ type Date = String
 
 type Amount = Float
 
-type PayeeId = String
+type PayeeName = String
 
 data TransactionDetail = TransactionDetail { 
     date::Date, 
     amount::Amount,
-    payeeId::PayeeId
+    payeeName::PayeeName
 } deriving (Eq, Show, Generic)
 
 data TransactionsData = TransactionsData {

@@ -28,8 +28,8 @@ instance FromJSON DM.TransactionDetail where
     parseJSON = withObject "TransactionDetail" $ \obj -> do
         date <- obj .: "date"
         amount <- obj .: "amount"
-        payeeId <- obj .: "payee_id"
-        return DM.TransactionDetail { DM.date = date, DM.amount = amount, DM.payeeId = payeeId }
+        payeeName <- obj .: "payee_name"
+        return DM.TransactionDetail { DM.date = date, DM.amount = amount / 1000.0, DM.payeeName = payeeName }
 
 instance FromJSON DM.TransactionsData
 
