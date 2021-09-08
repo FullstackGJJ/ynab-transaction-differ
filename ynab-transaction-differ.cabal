@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b0f63bc00900363a727e9870d3a163e6033645c4f071c02195cdad18515111c0
+-- hash: 3e6f4a41786e8503af563063776d29b54dfc0dff0fad0ba03ab712b83994cb71
 
 name:           ynab-transaction-differ
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      CitiAccountTransaction.DomainModels
       Lib
       TransactionDiffer.DomainModels
       TransactionDiffer.DomainRules
