@@ -1,6 +1,6 @@
 ## BankAccountTransactionParser domain
 
-This domain is responsible for parsing and returning bank account transactions from a delimited string
+This domain is responsible for parsing and returning a bank account transaction from a delimited string
 
 Mental Models:
 
