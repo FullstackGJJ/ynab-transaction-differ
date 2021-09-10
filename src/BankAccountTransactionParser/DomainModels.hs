@@ -1,4 +1,4 @@
-module CitiAccountTransaction.DomainModels where
+module BankAccountTransactionParser.DomainModels where
 
 type Date = String
 
