@@ -1,10 +1,10 @@
 name:                ynab-transaction-differ
 version:             0.1.0.0
-github:              "githubuser/ynab-transaction-differ"
+github:              "fullstackgjj/ynab-transaction-differ"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2021 Author name here"
+author:              "Hank Lin"
+maintainer:          "fullstackgjj@gmail.com"
+copyright:           "2021 Hank Lin"
 
 extra-source-files:
 - README.md

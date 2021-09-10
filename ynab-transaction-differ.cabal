@@ -4,16 +4,16 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3e6f4a41786e8503af563063776d29b54dfc0dff0fad0ba03ab712b83994cb71
+-- hash: e4288c84bb33dd1a02d7f156745e7e1d5b3948b7aeffb8e02724f3042b6eccc6
 
 name:           ynab-transaction-differ
 version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/githubuser/ynab-transaction-differ#readme>
-homepage:       https://github.com/githubuser/ynab-transaction-differ#readme
-bug-reports:    https://github.com/githubuser/ynab-transaction-differ/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2021 Author name here
+homepage:       https://github.com/fullstackgjj/ynab-transaction-differ#readme
+bug-reports:    https://github.com/fullstackgjj/ynab-transaction-differ/issues
+author:         Hank Lin
+maintainer:     fullstackgjj@gmail.com
+copyright:      2021 Hank Lin
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -23,7 +23,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/ynab-transaction-differ
+  location: https://github.com/fullstackgjj/ynab-transaction-differ
 
 library
   exposed-modules:

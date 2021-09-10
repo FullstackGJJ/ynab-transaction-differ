@@ -45,7 +45,7 @@ extra-deps:
 - HUnit-1.6.2.0
 - hspec-2.7.8
 - wreq-0.5.3.3
-#
+
 # Nested dependencies
 - QuickCheck-2.14.2
 - RSA-2.4.1
@@ -62,8 +62,8 @@ extra-deps:
 - async-2.2.3
 - attoparsec-0.14.1
 - authenticate-oauth-1.7
-- base-compat-0.11.2
-- base-compat-batteries-0.11.2
+- base-compat-0.12.0
+- base-compat-batteries-0.12.0
 - base-orphans-0.8.5
 - base16-bytestring-1.0.1.0
 - base64-bytestring-1.2.1.0
@@ -78,6 +78,8 @@ extra-deps:
 - clock-0.8.2
 - colour-2.3.6
 - comonad-5.0.8
+- conduit-1.3.4.1
+- conduit-extra-1.3.5
 - connection-0.3.1
 - contravariant-1.5.5
 - cookie-0.4.5
@@ -112,9 +114,13 @@ extra-deps:
 - lens-aeson-1.1.1
 - memory-0.16.0
 - mime-types-0.1.0.9
+- mmorph-1.2.0
+- monad-control-1.0.3.1
+- mono-traversable-1.0.15.1
 - network-3.1.2.2
 - network-uri-2.6.4.1
 - old-locale-1.0.0.7
+- ordered-containers-0.2.2
 - parallel-3.2.2.0
 - pem-0.2.4
 - primitive-0.7.2.0
@@ -123,27 +129,32 @@ extra-deps:
 - quickcheck-io-0.2.0
 - random-1.2.0
 - reflection-2.1.6
+- resourcet-1.2.4.3
 - scientific-0.3.7.0
 - semigroupoids-5.3.5
-- semigroups-0.19.1
+- semigroups-0.19.2
 - setenv-0.1.1.3
 - socks-0.6.1
+- split-0.2.3.4
 - splitmix-0.1.0.3
 - streaming-commons-0.2.2.1
 - strict-0.4.0.1
 - tagged-0.8.6.1
 - tf-random-0.5
-- th-abstraction-0.4.2.0
+- th-abstraction-0.4.3.0
 - th-compat-0.1.3
 - these-1.1.1.1
-- time-compat-1.9.6
+- time-compat-1.9.6.1
 - time-locale-compat-0.1.1.5
 - tls-1.5.5
 - transformers-base-0.4.6
 - transformers-compat-0.7
+- typed-process-0.2.6.1
+- unliftio-core-0.2.0.1
 - unordered-containers-0.2.14.0
 - uuid-types-1.0.5
 - vector-0.12.3.0
+- vector-algorithms-0.8.0.4
 - void-0.7.3
 - x509-1.7.5
 - x509-store-1.6.7
