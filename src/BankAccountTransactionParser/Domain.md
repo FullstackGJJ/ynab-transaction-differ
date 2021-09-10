@@ -6,8 +6,9 @@ Mental Models:
 
 - A bank account transaction is a mental model that holds information about date, description, debit, and credit
 - A delimited row is a string that contains information about date, description, debit, and credit separated by a delimiter
-- A row header map is a mapping for what positions in a delimited row do date, description, debit, and credit exist
+- A row header map is a mental model that holds information regarding positions in a delimited row where date, description, debit, and credit exist
 - An empty cell represents when there is nothing between delimiters
+- A filled cell represents where there is something between delimiters
 - A row parsing error is a mental model that contains information about reason for rejecting the input
 
 The rules of thumb are:
