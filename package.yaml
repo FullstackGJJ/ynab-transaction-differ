@@ -29,6 +29,8 @@ library:
   - bytestring
   - lens
   - lens-aeson
+  - split
+  - text
   - wreq
 
 executables:

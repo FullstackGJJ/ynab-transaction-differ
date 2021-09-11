@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 14d318647fd82fc2bb6fb726f1e5170ff7613be544f82f6f0225c2f9b77c1423
+-- hash: 89bb61d914eb1d0fdec75cba0e9359f3dd0de570db28564fa7bbf48d156af074
 
 name:           ynab-transaction-differ
 version:        0.1.0.0
@@ -28,6 +28,7 @@ source-repository head
 library
   exposed-modules:
       BankAccountTransactionParser.DomainModels
+      BankAccountTransactionParser.DomainRules
       Lib
       TransactionDiffer.DomainModels
       TransactionDiffer.DomainRules
@@ -49,6 +50,8 @@ library
     , bytestring
     , lens
     , lens-aeson
+    , split
+    , text
     , wreq
   default-language: Haskell2010
 
@@ -69,6 +72,7 @@ test-suite ynab-transaction-differ-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      BankAccountTransactionParser.DomainRulesSpec
       TransactionDiffer.InternalToCalculationsSpec
       TransactionDiffer.PureCalculationsSpec
       Paths_ynab_transaction_differ

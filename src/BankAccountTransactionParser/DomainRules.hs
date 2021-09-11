@@ -1,14 +1,32 @@
+{-# LANGUAGE OverloadedStrings #-}
 module BankAccountTransactionParser.DomainRules where
 
 import qualified BankAccountTransactionParser.DomainModels as DM
 
+import Data.Char
+import Data.List.Split
+import Data.Text
+
 -----------------Function Declarations-----------------
-dateProvided :: DM.DelimitedRow -> DM.RowHeaderMap -> Bool
-debitCreditXorProvided :: DM.DelimitedRow -> DM.RowHeaderMap -> Bool
+requiredDateProvided :: DM.DelimitedRow -> DM.RowHeaderMap -> Bool
+requiredDebitCreditXorProvided :: DM.DelimitedRow -> DM.RowHeaderMap -> Bool
 
 ----------------Function Implementations----------------
-dateProvided delimitedRow rowHeaderMap = False
+requiredDateProvided delimitedRow rowHeaderMap = let
+    splitRow = Data.Text.splitOn "," (pack delimitedRow)
+    cellRow = Prelude.map (\x -> if Data.Text.all isSpace x then DM.Empty else DM.Filled (unpack x)) splitRow
+    dateIndex = DM.rhmDate rowHeaderMap
+    dateCell = cellRow !! dateIndex
+    in isNotEmpty dateCell
 
--- (debit exists or credit exists) and (debit doesn't exist or credit doesn't exist)
-debitCreditXorProvided delimitedRow rowHeaderMap = False
+requiredDebitCreditXorProvided delimitedRow rowHeaderMap = let
+    splitRow = Data.Text.splitOn "," (pack delimitedRow)
+    cellRow = Prelude.map (\x -> if Data.Text.all isSpace x then DM.Empty else DM.Filled (unpack x)) splitRow
+    debitIndex = DM.rhmDebit rowHeaderMap
+    creditIndex = DM.rhmCredit rowHeaderMap
+    creditCell = cellRow !! creditIndex
+    debitCell = cellRow !! debitIndex
+    in (isNotEmpty debitCell || isNotEmpty creditCell) && (not (isNotEmpty debitCell) || not (isNotEmpty creditCell))
 
+isNotEmpty cell = case cell of DM.Empty -> False
+                               DM.Filled _ -> True

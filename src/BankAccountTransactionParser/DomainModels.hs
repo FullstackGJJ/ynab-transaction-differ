@@ -10,8 +10,10 @@ type Credit = Float
 
 type DelimitedRow = String
 
-data Cell a = Empty
-            | Filled a
+type ParsedRow = [Cell]
+
+data Cell = Empty
+          | Filled String
 
 data BankAccountTransaction = BankAccountTransaction {
     date::Date,
@@ -21,10 +23,10 @@ data BankAccountTransaction = BankAccountTransaction {
 } deriving (Eq, Show)
 
 data RowHeaderMap = RowHeaderMap {
-    rhmDate::Integer,
-    rhmDescription::Integer,
-    rhmDebit::Integer,
-    rhmCredit::Integer
+    rhmDate::Int,
+    rhmDescription::Int,
+    rhmDebit::Int,
+    rhmCredit::Int
 } deriving (Eq, Show)
 
 data RowParsingError = RowParsingError {
