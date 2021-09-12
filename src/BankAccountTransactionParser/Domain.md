@@ -5,20 +5,20 @@ This domain is responsible for parsing and returning a bank account transaction 
 Mental Models:
 
 - A bank account transaction is a mental model that holds information about date, description, debit, and credit
-- A delimited row is a string that contains information about date, description, debit, and credit separated by a delimiter
 - A row header map is a mental model that holds information regarding positions in a delimited row where date, description, debit, and credit exist
+- A cell is a mental model that holds information about a column
+- A cell row is a list of cells
 - An empty cell represents when there is nothing between delimiters
 - A filled cell represents where there is something between delimiters
-- A row parsing error is a mental model that contains information about reason for rejecting the input
 
 The rules of thumb are:
 
+- If a row header map entry references a column number that is out of bounds then the configuration and data are incompatible
 - An empty cell can never occupy the position of a date
-- Either debit or credit can exist in a delimited row but never both together absent or present at the same time
+- Either debit or credit can be empty cells but never both together empty or filled at the same time
 
 An expert BankAccountTransactionParser should always be able to:
 
-- Correctly reject bad input that break the rules of thumb
-- Be able to return a correct bank account transaction when given a valid delimited row
+- Return a correct bank account transaction when given a valid delimited row
 
 An expert BankAccountTransactionParser under the right conditions can:

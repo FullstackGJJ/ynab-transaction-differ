@@ -8,13 +8,6 @@ type Debit = Float
 
 type Credit = Float
 
-type DelimitedRow = String
-
-type ParsedRow = [Cell]
-
-data Cell = Empty
-          | Filled String
-
 data BankAccountTransaction = BankAccountTransaction {
     date::Date,
     description::Description,
