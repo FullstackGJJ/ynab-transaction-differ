@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e9a8a448fe7ee9ae19d98742da0fc9bbf426a2db097a8fc0488a737343dcc0a9
+-- hash: a9798b42fb8a7713a641cf744c73636afa0e378eb37664d4eff172ce1d76860f
 
 name:           ynab-transaction-differ
 version:        0.1.0.0
@@ -32,6 +32,8 @@ library
       BankAccountTransactionParser.CellRowParser.PureCalculations
       BankAccountTransactionParser.DomainModels
       BankAccountTransactionParser.DomainRules
+      BankAccountTransactionParser.InternalToCalculations
+      BankAccountTransactionParser.PureCalculations
       Lib
       TransactionDiffer.DomainModels
       TransactionDiffer.DomainRules
@@ -76,6 +78,8 @@ test-suite ynab-transaction-differ-test
   main-is: Spec.hs
   other-modules:
       BankAccountTransactionParser.DomainRulesSpec
+      BankAccountTransactionParser.InternalToCalculationsSpec
+      BankAccountTransactionParser.PureCalculationsSpec
       TransactionDiffer.InternalToCalculationsSpec
       TransactionDiffer.PureCalculationsSpec
       Paths_ynab_transaction_differ

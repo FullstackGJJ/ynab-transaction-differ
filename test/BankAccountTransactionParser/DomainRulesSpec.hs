@@ -10,7 +10,6 @@ spec :: Spec
 spec = do 
     describe "requiredDateProvided" $ do
         it "should take raw delimited row string, row header map and correctly determine that required date is provided" $ do
-            -- let inputCellRow = "Cleared,08/31/2021,\"AMZN MKTP US*259P09BT0 AMZN.COM/BILL WA\",28.18,"
             let inputCellRow = [ Filled "Cleared"
                                , Filled "08/31/2021"
                                , Filled "AMZN MKTP US*259P09BT0 AMZN.COM/BILL WA"

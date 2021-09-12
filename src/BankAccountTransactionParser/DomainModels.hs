@@ -24,4 +24,4 @@ data RowHeaderMap = RowHeaderMap {
 
 data RowParsingError = RowParsingError {
     reason::String
-}
+} deriving (Eq, Show)

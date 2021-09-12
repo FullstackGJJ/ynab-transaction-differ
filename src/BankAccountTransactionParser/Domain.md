@@ -19,6 +19,6 @@ The rules of thumb are:
 
 An expert BankAccountTransactionParser should always be able to:
 
-- Return a correct bank account transaction when given a valid delimited row
+- Create a correct bank account transaction when given a valid delimited row and compatible row header map
 
 An expert BankAccountTransactionParser under the right conditions can:

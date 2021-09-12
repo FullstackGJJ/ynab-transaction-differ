@@ -21,7 +21,7 @@ validConfigurationWithData cellRow rowHeaderMap = let
               , DM.rhmDebit rowHeaderMap
               , DM.rhmCredit rowHeaderMap ]
     cellRowLength = Prelude.length cellRow
-    containsOutOfBoundsIndex = Prelude.any (> cellRowLength - 1) indices
+    containsOutOfBoundsIndex = Prelude.any (>= cellRowLength) indices
     in not containsOutOfBoundsIndex
 
 requiredDateProvided cellRow rowHeaderMap = let
