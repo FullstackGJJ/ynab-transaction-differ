@@ -14,3 +14,14 @@ data BankAccountTransaction = BankAccountTransaction {
     debit::Debit,
     credit::Credit
 } deriving (Eq, Show)
+
+data RowHeaderMap = RowHeaderMap {
+    rhmDate::Int,
+    rhmDescription::Int,
+    rhmDebit::Int,
+    rhmCredit::Int
+} deriving (Eq, Show)
+
+data RowParsingError = RowParsingError {
+    reason::String
+} deriving (Eq, Show)
