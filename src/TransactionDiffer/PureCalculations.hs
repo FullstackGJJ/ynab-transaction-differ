@@ -2,14 +2,17 @@ module TransactionDiffer.PureCalculations where
 
 import qualified TransactionDiffer.DomainModels as DM
 import qualified TransactionDiffer.DomainRules as DR
-import qualified TransactionDiffer.InternalToCalculations as IF
+import qualified TransactionDiffer.InternalToCalculations as I
 
 -----------------Function Declarations-----------------
-findTransactionDiffs :: [DM.Transaction] -> [DM.Transaction] -> ([DM.Transaction], [DM.Transaction], [DM.Transaction])
+findTransactionDiffs :: [DM.Transaction] -> [DM.Transaction] -> DM.TransactionsDiff
 
 ----------------Function Implementations----------------
 findTransactionDiffs referenceList outOfSyncList = 
-    let verifiedTransactions = IF.determineVerifiedTransactions referenceList outOfSyncList
-        missingTransactions = IF.determineMissingTransactions referenceList outOfSyncList
-        extraTransactions = IF.determineExtraTransactions referenceList outOfSyncList
-    in (verifiedTransactions, missingTransactions, extraTransactions)
+    let verifiedTransactions = I.determineVerifiedTransactions referenceList outOfSyncList
+        missingTransactions = I.determineMissingTransactions referenceList outOfSyncList
+        extraTransactions = I.determineExtraTransactions referenceList outOfSyncList
+    in DM.TransactionsDiff { DM.tdVerified = verifiedTransactions
+                           , DM.tdExtra = extraTransactions
+                           , DM.tdMissing = missingTransactions
+                           }

@@ -27,6 +27,7 @@ library:
   dependencies:
   - aeson
   - bytestring
+  - containers
   - lens
   - lens-aeson
   - split
@@ -59,3 +60,4 @@ tests:
     - ynab-transaction-differ
     - HUnit
     - hspec
+    - containers

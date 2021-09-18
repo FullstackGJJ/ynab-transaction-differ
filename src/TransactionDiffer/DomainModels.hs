@@ -11,3 +11,9 @@ data Transaction = Transaction {
     amount::Amount,
     merchant::Merchant
 } deriving (Eq, Show)
+
+data TransactionsDiff = TransactionsDiff {
+    tdVerified::[Transaction],
+    tdExtra::[Transaction],
+    tdMissing::[Transaction]
+} deriving (Eq, Show)

@@ -1,1 +1,0 @@
-module YnabApi.DomainRules where

@@ -3,7 +3,6 @@
 module YnabApi.InternalToActions where
 
 import qualified YnabApi.DomainModels as DM
-import qualified YnabApi.DomainRules as DR
 
 import Control.Exception
 import Control.Lens
