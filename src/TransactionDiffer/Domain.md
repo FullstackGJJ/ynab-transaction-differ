@@ -5,6 +5,7 @@ This domain is responsible for diffing a reference list of transactions against 
 Mental Models:
 
 - A transaction is a mental model that holds information about date, amount, merchant
+- A transaction diff is a mental model that holds information about verified, missing, and extra transactions when comparing one list of transactions to another
 
 The rules of thumb are:
 
@@ -15,6 +16,6 @@ The rules of thumb are:
 
 An expert TransactionDiffer should always be able to:
 
-- Take two transaction lists, one referenceList, one outOfSyncList, and accurately give back verifiedList, missingList, and extraList
+- Take two transaction lists, one referenceList, one outOfSyncList, and accurately give back a correct transaction diff
 
 An expert TransactionDiffer under the right conditions can:

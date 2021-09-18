@@ -16,4 +16,7 @@ containsMatchingDates collection1 collection2 = let
     in all (\x -> member x collection1) collection2Keys && all (\x -> member x collection2) collection1Keys
 
 populateMissingDates referenceCollection targetCollection = 
-    Data.List.foldl (\acc key -> if member key acc then acc else Data.Map.insert key [] acc) targetCollection (keys referenceCollection)
+    Data.List.foldl 
+        (\acc key -> if member key targetCollection then acc else Data.Map.insert key [] acc)
+        targetCollection
+        (keys referenceCollection)

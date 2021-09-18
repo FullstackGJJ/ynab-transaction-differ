@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b881bf42dcc0a50a8c71f31667089671437fa24fb3fe6ed9418d4e8c60d2901f
+-- hash: 08d4848ef0e9559aa387a732212dd0c67341f92115dd57c1fc82d3d74f8faa4d
 
 name:           ynab-transaction-differ
 version:        0.1.0.0
@@ -36,17 +36,17 @@ library
       BankAccountTransactionParser.PureCalculations
       DomainModels
       DomainRules
+      ImpureActions
+      InternalToActions
       Lib
+      PureCalculations
       TransactionDiffer.DomainModels
       TransactionDiffer.DomainRules
-      TransactionDiffer.ImpureActions
       TransactionDiffer.InternalToCalculations
       TransactionDiffer.PureCalculations
       YnabApi.DomainModels
-      YnabApi.DomainRules
       YnabApi.ImpureActions
       YnabApi.InternalToActions
-      YnabApi.PureCalculations
   other-modules:
       Paths_ynab_transaction_differ
   hs-source-dirs:
@@ -84,6 +84,7 @@ test-suite ynab-transaction-differ-test
       BankAccountTransactionParser.InternalToCalculationsSpec
       BankAccountTransactionParser.PureCalculationsSpec
       DomainRulesSpec
+      PureCalculationsSpec
       TransactionDiffer.InternalToCalculationsSpec
       TransactionDiffer.PureCalculationsSpec
       Paths_ynab_transaction_differ

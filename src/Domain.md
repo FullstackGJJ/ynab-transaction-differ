@@ -9,6 +9,7 @@ Mental Models:
 - A csv line is a line of text that represent columns of data separated by commas
 - A bank account transaction is a mental model that holds date, description, debit, and credit
 - A row header map is a description of which columns on a csv file represents date, description, debit, and credit for a bank account transaction
+- A transaction diff is a representation of how a particular date's list of transaction differ from another list of transactions
 
 The rules of thumb are:
 
@@ -17,7 +18,7 @@ The rules of thumb are:
 
 An expert YnabTransactionDiffer should always be able to:
 
-- Return correct transaction diffs when given transactions that came from YNAB and transactions that came from bank transaction history csv lines
+- Calculate correct transaction diffs when given transactions that came from YNAB and transactions that came from bank transaction history csv lines
 
 An expert YnabTransactionDiffer under the right conditions can:
 

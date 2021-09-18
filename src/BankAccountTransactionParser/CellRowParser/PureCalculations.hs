@@ -11,7 +11,6 @@ isNotEmpty :: DM.Cell -> Bool
 convertDelimitedToCellRow :: Text -> DM.DelimitedRow -> DM.CellRow
 
 ----------------Function Implementations----------------
-
 isNotEmpty cell = case cell of DM.Empty -> False
                                DM.Filled _ -> True
 

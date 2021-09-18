@@ -1,1 +1,0 @@
-module YnabApi.PureCalculations where
