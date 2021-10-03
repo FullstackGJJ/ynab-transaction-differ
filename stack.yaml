@@ -45,6 +45,8 @@ extra-deps:
 - HUnit-1.6.2.0
 - hspec-2.7.8
 - wreq-0.5.3.3
+- docopt-0.7.0.7
+- groom-0.1.2.1
 
 # Nested dependencies
 - QuickCheck-2.14.2
@@ -96,7 +98,9 @@ extra-deps:
 - dlist-1.0
 - entropy-0.4.1.6
 - free-5.1.7
+- happy-1.20.0
 - hashable-1.3.3.0
+- haskell-src-exts-1.23.1
 - hourglass-0.2.12
 - hspec-core-2.7.8
 - hspec-discover-2.7.8
@@ -143,6 +147,7 @@ extra-deps:
 - tf-random-0.5
 - th-abstraction-0.4.3.0
 - th-compat-0.1.3
+- th-lift-0.8.2
 - these-1.1.1.1
 - time-compat-1.9.6.1
 - time-locale-compat-0.1.1.5

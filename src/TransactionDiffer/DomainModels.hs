@@ -1,6 +1,8 @@
 module TransactionDiffer.DomainModels where
 
-type Date = String
+import Data.Time
+
+type Date = UTCTime
 
 type Amount = Float
 

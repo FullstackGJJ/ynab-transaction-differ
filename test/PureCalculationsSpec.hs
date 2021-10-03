@@ -8,64 +8,71 @@ import TransactionDiffer.DomainModels
 
 import Data.Map
 
+import Data.Time
+import Data.Time.Format
+
 spec :: Spec
 spec = do 
     describe "calculateTransactionDiffs" $ do
         it "should return correct date mapped transaction diffs when given two different date mapped transactions case 1" $ do
-            let inputReferenceTransactions = fromList [("08/31/2020", [ Transaction { date = "08/31/2020", amount = 20.01, merchant = "" } ])]
-            let inputOutOfSyncTransactions = fromList [("08/31/2020", [ Transaction { date = "08/31/2020", amount = 100.00, merchant = "" } ])]
-            let expectedResult = fromList [ ("08/31/2020", TransactionsDiff { tdVerified = []
-                                                                            , tdExtra = [ Transaction { date = "08/31/2020", amount = 100.00, merchant = "" } ]
-                                                                            , tdMissing = [ Transaction { date = "08/31/2020", amount = 20.01, merchant = "" } ]
-                                                                            })
+            let augustThirtyFirst = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "08/31/2020" :: UTCTime
+            let inputReferenceTransactions = fromList [(augustThirtyFirst, [ Transaction { date = augustThirtyFirst, amount = 20.01, merchant = "" } ])]
+            let inputOutOfSyncTransactions = fromList [(augustThirtyFirst, [ Transaction { date = augustThirtyFirst, amount = 100.00, merchant = "" } ])]
+            let expectedResult = fromList [ (augustThirtyFirst, TransactionsDiff { tdVerified = []
+                                                                                 , tdExtra = [ Transaction { date = augustThirtyFirst, amount = 100.00, merchant = "" } ]
+                                                                                 , tdMissing = [ Transaction { date = augustThirtyFirst, amount = 20.01, merchant = "" } ]
+                                                                                 })
                                           ]
               
             calculateTransactionDiffs inputReferenceTransactions inputOutOfSyncTransactions `shouldBe` expectedResult
 
         it "should return correct date mapped transaction diffs when given two different date mapped transactions case 2" $ do
-            let inputReferenceTransactions = fromList [("08/31/2020", [ Transaction { date = "08/31/2020", amount = 20.01, merchant = "" }
-                                                                      , Transaction { date = "08/31/2020", amount = 54.02, merchant = "" }
-                                                                      , Transaction { date = "08/31/2020", amount = 30.00, merchant = "" }
-                                                                      , Transaction { date = "08/31/2020", amount = 200.00, merchant = "" }
-                                                                      ])]
-            let inputOutOfSyncTransactions = fromList [("08/31/2020", [ Transaction { date = "08/31/2020", amount = 100.00, merchant = "" }
-                                                                      , Transaction { date = "08/31/2020", amount = 75.00, merchant = "" }
-                                                                      ])]
-            let expectedResult = fromList [ ("08/31/2020", TransactionsDiff { tdVerified = []
-                                                                            , tdExtra = [ Transaction { date = "08/31/2020", amount = 100.00, merchant = "" }
-                                                                                        , Transaction { date = "08/31/2020", amount = 75.00, merchant = "" }
-                                                                                        ]
-                                                                            , tdMissing = [ Transaction { date = "08/31/2020", amount = 20.01, merchant = "" }
-                                                                                          , Transaction { date = "08/31/2020", amount = 54.02, merchant = "" }
-                                                                                          , Transaction { date = "08/31/2020", amount = 30.00, merchant = "" }
-                                                                                          , Transaction { date = "08/31/2020", amount = 200.00, merchant = "" }
-                                                                                          ]
-                                                                            })
+            let augustThirtyFirst = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "08/31/2020" :: UTCTime
+            let inputReferenceTransactions = fromList [(augustThirtyFirst, [ Transaction { date = augustThirtyFirst, amount = 20.01, merchant = "" }
+                                                                           , Transaction { date = augustThirtyFirst, amount = 54.02, merchant = "" }
+                                                                           , Transaction { date = augustThirtyFirst, amount = 30.00, merchant = "" }
+                                                                           , Transaction { date = augustThirtyFirst, amount = 200.00, merchant = "" }
+                                                                           ])]
+            let inputOutOfSyncTransactions = fromList [(augustThirtyFirst, [ Transaction { date = augustThirtyFirst, amount = 100.00, merchant = "" }
+                                                                           , Transaction { date = augustThirtyFirst, amount = 75.00, merchant = "" }
+                                                                           ])]
+            let expectedResult = fromList [ (augustThirtyFirst, TransactionsDiff { tdVerified = []
+                                                                                 , tdExtra = [ Transaction { date = augustThirtyFirst, amount = 100.00, merchant = "" }
+                                                                                             , Transaction { date = augustThirtyFirst, amount = 75.00, merchant = "" }
+                                                                                             ]
+                                                                                 , tdMissing = [ Transaction { date = augustThirtyFirst, amount = 20.01, merchant = "" }
+                                                                                               , Transaction { date = augustThirtyFirst, amount = 54.02, merchant = "" }
+                                                                                               , Transaction { date = augustThirtyFirst, amount = 30.00, merchant = "" }
+                                                                                               , Transaction { date = augustThirtyFirst, amount = 200.00, merchant = "" }
+                                                                                               ]
+                                                                                 })
                                           ]
               
             calculateTransactionDiffs inputReferenceTransactions inputOutOfSyncTransactions `shouldBe` expectedResult
 
         it "should return correct date mapped transaction diffs when given two different date mapped transactions case 3" $ do
-            let inputReferenceTransactions = fromList [("08/31/2020", [ Transaction { date = "08/31/2020", amount = 20.01, merchant = "" }
-                                                                      , Transaction { date = "08/31/2020", amount = 54.02, merchant = "" }
-                                                                      , Transaction { date = "08/31/2020", amount = 30.00, merchant = "" }
-                                                                      , Transaction { date = "08/31/2020", amount = 200.00, merchant = "" }
+            let augustThirtyFirst = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "08/31/2020" :: UTCTime
+            let augustThirtieth = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "08/30/2020" :: UTCTime
+            let inputReferenceTransactions = fromList [(augustThirtyFirst, [ Transaction { date = augustThirtyFirst, amount = 20.01, merchant = "" }
+                                                                      , Transaction { date = augustThirtyFirst, amount = 54.02, merchant = "" }
+                                                                      , Transaction { date = augustThirtyFirst, amount = 30.00, merchant = "" }
+                                                                      , Transaction { date = augustThirtyFirst, amount = 200.00, merchant = "" }
                                                                       ])]
-            let inputOutOfSyncTransactions = fromList [("08/30/2020", [ Transaction { date = "08/30/2020", amount = 100.00, merchant = "" }
-                                                                      , Transaction { date = "08/30/2020", amount = 75.00, merchant = "" }
+            let inputOutOfSyncTransactions = fromList [(augustThirtieth, [ Transaction { date = augustThirtieth, amount = 100.00, merchant = "" }
+                                                                      , Transaction { date = augustThirtieth, amount = 75.00, merchant = "" }
                                                                       ])]
-            let expectedResult = fromList [ ("08/31/2020", TransactionsDiff { tdVerified = []
+            let expectedResult = fromList [ (augustThirtyFirst, TransactionsDiff { tdVerified = []
                                                                             , tdExtra = []
-                                                                            , tdMissing = [ Transaction { date = "08/31/2020", amount = 20.01, merchant = "" }
-                                                                                          , Transaction { date = "08/31/2020", amount = 54.02, merchant = "" }
-                                                                                          , Transaction { date = "08/31/2020", amount = 30.00, merchant = "" }
-                                                                                          , Transaction { date = "08/31/2020", amount = 200.00, merchant = "" }
+                                                                            , tdMissing = [ Transaction { date = augustThirtyFirst, amount = 20.01, merchant = "" }
+                                                                                          , Transaction { date = augustThirtyFirst, amount = 54.02, merchant = "" }
+                                                                                          , Transaction { date = augustThirtyFirst, amount = 30.00, merchant = "" }
+                                                                                          , Transaction { date = augustThirtyFirst, amount = 200.00, merchant = "" }
                                                                                           ]
                                                                             })
-                                          , ("08/30/2020", TransactionsDiff { tdVerified = []
+                                          , (augustThirtieth, TransactionsDiff { tdVerified = []
                                                                             , tdMissing = []
-                                                                            , tdExtra = [ Transaction { date = "08/30/2020", amount = 100.00, merchant = "" }
-                                                                                        , Transaction { date = "08/30/2020", amount = 75.00, merchant = "" }
+                                                                            , tdExtra = [ Transaction { date = augustThirtieth, amount = 100.00, merchant = "" }
+                                                                                        , Transaction { date = augustThirtieth, amount = 75.00, merchant = "" }
                                                                                         ]
                                                                             })
                                           ]
@@ -73,36 +80,39 @@ spec = do
             calculateTransactionDiffs inputReferenceTransactions inputOutOfSyncTransactions `shouldBe` expectedResult
 
         it "should return correct date mapped transaction diffs when given two different date mapped transactions case 4" $ do
-            let inputReferenceTransactions = fromList [ ("08/31/2020", [ Transaction { date = "08/31/2020", amount = 20.01, merchant = "" }
-                                                                       , Transaction { date = "08/31/2020", amount = 54.02, merchant = "" }
-                                                                       , Transaction { date = "08/31/2020", amount = 30.00, merchant = "" }
-                                                                       , Transaction { date = "08/31/2020", amount = 200.00, merchant = "" }
-                                                                       ])
-                                                      , ("08/20/2020", [ Transaction { date = "08/20/2020", amount = 500.00, merchant = "" } ])
+            let augustThirtyFirst = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "08/31/2020" :: UTCTime
+            let augustThirtieth = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "08/30/2020" :: UTCTime
+            let augustTwentieth = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "08/20/2020" :: UTCTime
+            let inputReferenceTransactions = fromList [ (augustThirtyFirst, [ Transaction { date = augustThirtyFirst, amount = 20.01, merchant = "" }
+                                                                            , Transaction { date = augustThirtyFirst, amount = 54.02, merchant = "" }
+                                                                            , Transaction { date = augustThirtyFirst, amount = 30.00, merchant = "" }
+                                                                            , Transaction { date = augustThirtyFirst, amount = 200.00, merchant = "" }
+                                                                            ])
+                                                      , (augustTwentieth, [ Transaction { date = augustTwentieth, amount = 500.00, merchant = "" } ])
                                                       ]
-            let inputOutOfSyncTransactions = fromList [ ("08/30/2020", [ Transaction { date = "08/30/2020", amount = 100.00, merchant = "" }
-                                                                        , Transaction { date = "08/30/2020", amount = 75.00, merchant = "" }
-                                                                        ])
-                                                      , ("08/20/2020", [ Transaction { date = "08/20/2020", amount = 500.00, merchant = "" } ])
+            let inputOutOfSyncTransactions = fromList [ (augustThirtieth, [ Transaction { date = augustThirtieth, amount = 100.00, merchant = "" }
+                                                                            , Transaction { date = augustThirtieth, amount = 75.00, merchant = "" }
+                                                                            ])
+                                                      , (augustTwentieth, [ Transaction { date = augustTwentieth, amount = 500.00, merchant = "" } ])
                                                       ]
-            let expectedResult = fromList [ ("08/31/2020", TransactionsDiff { tdVerified = []
-                                                                            , tdExtra = []
-                                                                            , tdMissing = [ Transaction { date = "08/31/2020", amount = 20.01, merchant = "" }
-                                                                                          , Transaction { date = "08/31/2020", amount = 54.02, merchant = "" }
-                                                                                          , Transaction { date = "08/31/2020", amount = 30.00, merchant = "" }
-                                                                                          , Transaction { date = "08/31/2020", amount = 200.00, merchant = "" }
-                                                                                          ]
-                                                                            })
-                                          , ("08/30/2020", TransactionsDiff { tdVerified = []
-                                                                            , tdMissing = []
-                                                                            , tdExtra = [ Transaction { date = "08/30/2020", amount = 100.00, merchant = "" }
-                                                                                        , Transaction { date = "08/30/2020", amount = 75.00, merchant = "" }
-                                                                                        ]
-                                                                            })
-                                          , ("08/20/2020", TransactionsDiff { tdExtra = []
-                                                                            , tdMissing = []
-                                                                            , tdVerified = [ Transaction { date = "08/20/2020", amount = 500.00, merchant = "" } ]
-                                                                            })
+            let expectedResult = fromList [ (augustThirtyFirst, TransactionsDiff { tdVerified = []
+                                                                                 , tdExtra = []
+                                                                                 , tdMissing = [ Transaction { date = augustThirtyFirst, amount = 20.01, merchant = "" }
+                                                                                               , Transaction { date = augustThirtyFirst, amount = 54.02, merchant = "" }
+                                                                                               , Transaction { date = augustThirtyFirst, amount = 30.00, merchant = "" }
+                                                                                               , Transaction { date = augustThirtyFirst, amount = 200.00, merchant = "" }
+                                                                                               ]
+                                                                                 })
+                                          , (augustThirtieth, TransactionsDiff { tdVerified = []
+                                                                                 , tdMissing = []
+                                                                                 , tdExtra = [ Transaction { date = augustThirtieth, amount = 100.00, merchant = "" }
+                                                                                             , Transaction { date = augustThirtieth, amount = 75.00, merchant = "" }
+                                                                                             ]
+                                                                                 })
+                                          , (augustTwentieth, TransactionsDiff { tdExtra = []
+                                                                               , tdMissing = []
+                                                                               , tdVerified = [ Transaction { date = augustTwentieth, amount = 500.00, merchant = "" } ]
+                                                                               })
                                           ]
               
             calculateTransactionDiffs inputReferenceTransactions inputOutOfSyncTransactions `shouldBe` expectedResult

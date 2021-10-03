@@ -30,8 +30,10 @@ library:
   - containers
   - lens
   - lens-aeson
+  - old-locale
   - split
   - text
+  - time
   - wreq
 
 executables:
@@ -44,6 +46,8 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - ynab-transaction-differ
+    - docopt
+    - groom
     when:
     - condition: false
       other-modules: Paths_ynab_transaction_differ
@@ -57,7 +61,8 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - ynab-transaction-differ
     - HUnit
-    - hspec
     - containers
+    - hspec
+    - time
+    - ynab-transaction-differ

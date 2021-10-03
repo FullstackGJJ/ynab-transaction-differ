@@ -9,6 +9,8 @@ import Control.Lens
 import Data.Aeson.Lens
 import Data.Aeson.Types
 import Data.ByteString.Char8
+import Data.Time
+import Data.Time.Format
 import Network.Wreq
 
 -----------------Function Declarations-----------------
@@ -28,7 +30,7 @@ instance FromJSON DM.TransactionDetail where
         date <- obj .: "date"
         amount <- obj .: "amount"
         payeeName <- obj .: "payee_name"
-        return DM.TransactionDetail { DM.date = date, DM.amount = amount / 1000.0, DM.payeeName = payeeName }
+        return DM.TransactionDetail { DM.date = parseTimeOrError False defaultTimeLocale "%Y-%m-%d" date :: UTCTime, DM.amount = amount / 1000.0, DM.payeeName = payeeName }
 
 instance FromJSON DM.TransactionsData
 

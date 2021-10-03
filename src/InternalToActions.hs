@@ -16,6 +16,8 @@ import Data.Either
 import Data.List
 import Data.Map
 import Data.Set
+import Data.Time
+import Data.Time.Format
 
 -----------------Function Declarations-----------------
 
@@ -29,7 +31,7 @@ convertCsvLinesToBankAccountTransactionAttempts csvLines rowHeaderMap = let
        else (Right (Data.List.map (\x -> fromRight emptyBankAccountTransaction x) lineAttempts))
 
 emptyBankAccountTransaction = BTP_DM.BankAccountTransaction {
-    BTP_DM.date = "",
+    BTP_DM.date = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "01/01/1970" :: UTCTime,
     BTP_DM.description = "",
     BTP_DM.debit = 0,
     BTP_DM.credit = 0
@@ -66,7 +68,7 @@ convertBankTransactionsToTransactions :: BTP_DM.BankAccountTransaction -> TD_DM.
 convertBankTransactionsToTransactions bankAccountTransaction = let
     debit = (BTP_DM.debit bankAccountTransaction)
     credit = (BTP_DM.credit bankAccountTransaction)
-    amountDetermination = if debit == 0 then negate credit else debit
+    amountDetermination = if debit == 0 then negate credit else negate debit
     in TD_DM.Transaction { TD_DM.date = (BTP_DM.date bankAccountTransaction)
                          , TD_DM.amount = amountDetermination
                          , TD_DM.merchant = (BTP_DM.description bankAccountTransaction)

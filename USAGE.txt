@@ -1,0 +1,4 @@
+Usage:
+  ynabdiff <bearerToken> <budgetId> <accountId> <sinceDate> <csvFilePath> <rowHeaderMapPath>
+
+Options:
