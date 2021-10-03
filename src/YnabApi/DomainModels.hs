@@ -3,8 +3,9 @@
 module YnabApi.DomainModels where
 
 import GHC.Generics
+import Data.Time
 
-type Date = String
+type Date = UTCTime
 
 type Amount = Float
 

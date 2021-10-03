@@ -43,4 +43,4 @@ checkForMissing (acc, outOfSyncList) transaction =
 
 removeFirstTransactionItem _ [] = []
 removeFirstTransactionItem x (y:ys) | (DM.amount x) == (DM.amount y) = ys
-                                    | otherwise = removeFirstTransactionItem x ys
+                                    | otherwise = y : (removeFirstTransactionItem x ys)

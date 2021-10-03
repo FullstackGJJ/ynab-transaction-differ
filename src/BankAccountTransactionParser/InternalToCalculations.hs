@@ -4,6 +4,9 @@ import qualified BankAccountTransactionParser.DomainModels as DM
 
 import qualified BankAccountTransactionParser.CellRowParser.DomainModels as CRP_DM
 
+import Data.Time
+import Data.Time.Format
+
 -----------------Function Declarations-----------------
 createBankAccountTransactionFromCellRow :: CRP_DM.CellRow -> DM.RowHeaderMap -> DM.BankAccountTransaction
 
@@ -14,7 +17,7 @@ createBankAccountTransactionFromCellRow cellRow rowHeaderMap = let
     debitString = case (cellRow !! (DM.rhmDebit rowHeaderMap)) of CRP_DM.Empty -> "0"; CRP_DM.Filled x -> x
     creditString = case (cellRow !! (DM.rhmCredit rowHeaderMap)) of CRP_DM.Empty -> "0"; CRP_DM.Filled x -> x
     in DM.BankAccountTransaction {
-        DM.date = date,
+        DM.date = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" date :: UTCTime,
         DM.description = description,
         DM.debit = read (debitString) :: Float,
         DM.credit = read (creditString) :: Float

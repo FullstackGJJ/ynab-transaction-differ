@@ -26,6 +26,20 @@ packages:
   original:
     hackage: wreq-0.5.3.3
 - completed:
+    hackage: docopt-0.7.0.7@sha256:a3d2eac54cd77d8c0b306ff96fb57be55542f143d81766aa1ae51458ad790dbe,3655
+    pantry-tree:
+      size: 1179
+      sha256: ddbc99124865b40574cd5834c51ae33adaf81f833e8b841b2c5325d521b552d1
+  original:
+    hackage: docopt-0.7.0.7
+- completed:
+    hackage: groom-0.1.2.1@sha256:b3be67cea27ec403032d23649f9995048fecb39f885d6b62b42209ada0fda636,1771
+    pantry-tree:
+      size: 253
+      sha256: 9fb058daf2933388376848219a30d0ae25c36b5e87792cd8034911a03c2f8863
+  original:
+    hackage: groom-0.1.2.1
+- completed:
     hackage: QuickCheck-2.14.2@sha256:4ce29211223d5e6620ebceba34a3ca9ccf1c10c0cf387d48aea45599222ee5aa,7736
     pantry-tree:
       size: 2315
@@ -369,12 +383,26 @@ packages:
   original:
     hackage: free-5.1.7
 - completed:
+    hackage: happy-1.20.0@sha256:f99e612b29d68d784d7e193943a13466f0923de69452a2585081491efed0436b,5709
+    pantry-tree:
+      size: 8749
+      sha256: a90122967031e2feb99adbbacf57ddf8627a7c0444720402513d3f11ec7f990a
+  original:
+    hackage: happy-1.20.0
+- completed:
     hackage: hashable-1.3.3.0@sha256:7f3b67151162a1dfe8472dc30430af98ed5470801d3f4b6c9b8d7a7443c920d4,4068
     pantry-tree:
       size: 1110
       sha256: 6160857b68b296172e66cb7a1d467cf11182cd2a5ddaec0af3b23b1d4fadd0b2
   original:
     hackage: hashable-1.3.3.0
+- completed:
+    hackage: haskell-src-exts-1.23.1@sha256:339841f4a6710e915a0bac8df18d8a454c11d626131aee4d05b6be150b7f863e,4577
+    pantry-tree:
+      size: 97804
+      sha256: 572aeb73c927ca9b4df7b9a32345dfdc1ba72b7d4af1c38dc12cd6bc2843d88f
+  original:
+    hackage: haskell-src-exts-1.23.1
 - completed:
     hackage: hourglass-0.2.12@sha256:e083f5e030dfebe432e30a9c0fa07a99a54eac992f622442646be561fd7a44e8,3085
     pantry-tree:
@@ -697,6 +725,13 @@ packages:
       sha256: 5e622d5a4b2a759ab91b6c5fa18418e470c361f34bbab2628e44104829e2ad1c
   original:
     hackage: th-compat-0.1.3
+- completed:
+    hackage: th-lift-0.8.2@sha256:955f3ad62b202d2ff37a616d2155ad9ce30879c7c63edab1f1ec69d757d70ed1,2677
+    pantry-tree:
+      size: 543
+      sha256: 9901527aedddd60372e970df215a9f5604fde3dd355e07633bf9ccc07e3e7b03
+  original:
+    hackage: th-lift-0.8.2
 - completed:
     hackage: these-1.1.1.1@sha256:bdc0a3015b2e5cdf016e402937d71856ae5fe4e9e9a0d4823cc94a214c55a39b,2732
     pantry-tree:

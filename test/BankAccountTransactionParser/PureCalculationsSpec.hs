@@ -8,6 +8,9 @@ import BankAccountTransactionParser.PureCalculations
 
 import BankAccountTransactionParser.CellRowParser.DomainModels
 
+import Data.Time
+import Data.Time.Format
+
 spec :: Spec
 spec = do 
     describe "createBankAccountTransaction" $ do
@@ -15,7 +18,7 @@ spec = do
             let inputDelimitedRow = "Cleared,08/31/2021,AMZN MKTP US*259P09BT0 AMZN.COM/BILL WA,28.18,"
             let inputRowHeaderMap = RowHeaderMap { rhmDate = 1, rhmDescription = 2, rhmDebit = 3, rhmCredit = 4 }
             let expectedResult = Right BankAccountTransaction { 
-                    date = "08/31/2021",
+                    date = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "08/31/2021" :: UTCTime,
                     description = "AMZN MKTP US*259P09BT0 AMZN.COM/BILL WA",
                     debit = 28.18,
                     credit =  0
@@ -27,7 +30,7 @@ spec = do
             let inputDelimitedRow = "Cleared,08/30/2021,AMZN MKTP US*259P09BT0 AMZN.COM/BILL WA,5.00,"
             let inputRowHeaderMap = RowHeaderMap { rhmDate = 1, rhmDescription = 2, rhmDebit = 3, rhmCredit = 4 }
             let expectedResult = Right BankAccountTransaction { 
-                    date = "08/30/2021",
+                    date = parseTimeOrError False defaultTimeLocale "%m/%d/%Y" "08/30/2021" :: UTCTime,
                     description = "AMZN MKTP US*259P09BT0 AMZN.COM/BILL WA",
                     debit = 5.00,
                     credit =  0

@@ -1,6 +1,8 @@
 module BankAccountTransactionParser.DomainModels where
 
-type Date = String
+import Data.Time
+
+type Date = UTCTime
 
 type Description = String
 
